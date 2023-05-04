@@ -1,0 +1,9 @@
+
+g
+java:S2095`"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(ÇÄ®Úüÿÿÿÿ
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 41 to the 15 allowed.(“–ýþ
+i
+java:S4042Q"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(áœ›˜øÿÿÿÿ
+E
+java:S2093""*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ

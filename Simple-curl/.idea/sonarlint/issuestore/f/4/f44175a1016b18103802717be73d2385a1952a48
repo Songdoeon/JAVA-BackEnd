@@ -1,0 +1,14 @@
+
+m
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(ÙØ¤Þýÿÿÿÿ
+W
+java:S1854+"<Remove this useless assignment to local variable "terminal".(Œ½àüùÿÿÿÿ
+Q
+java:S1854*";Remove this useless assignment to local variable "console".(ÓØ»ë
+B
+java:S1481*",Remove this unused "console" local variable.(ÓØ»ë
+H
+java:S1481+"-Remove this unused "terminal" local variable.(Œ½àüùÿÿÿÿ
+Q	java:S1259"<This block of commented-out lines of code should be removed.(ïÇõÞ
+c
+java:S5361A"HReplace this call to "replaceAll()" by a call to the "replace()" method.(·ã¤´ýÿÿÿÿ

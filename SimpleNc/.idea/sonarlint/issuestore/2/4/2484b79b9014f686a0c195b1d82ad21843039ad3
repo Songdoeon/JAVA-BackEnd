@@ -1,0 +1,25 @@
+
+`	java:S112 "FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112S"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112p"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112r"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+E
+java:S3740"/Provide the parametrized type for this generic.(¶ÑÖâ
+E
+java:S3740"/Provide the parametrized type for this generic.(¶ÑÖâ
+E
+java:S3740"/Provide the parametrized type for this generic.(›ºùð
+E
+java:S3740"/Provide the parametrized type for this generic.(›ºùð
+h
+java:S3776+"RRefactor this method to reduce its Cognitive Complexity from 36 to the 15 allowed.(“–ýþ
+[
+java:S2147q"ECombine this catch with the one at line 111, which has the same body.(ï­£Ä
+>
+java:S22017"(The return value of "trim" must be used.(žûÉš
+c
+java:S5361K"HReplace this call to "replaceAll()" by a call to the "replace()" method.(ò“¹„ÿÿÿÿÿ
+F
+java:S1481K"+Remove this unused "target" local variable.(ò“¹„ÿÿÿÿÿ
+>
+java:S2201]"(The return value of "trim" must be used.(ãæ“€

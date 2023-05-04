@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>학생수정</title>
+    <link rel="stylesheet" href="/resources/style.css" />
+</head>
+<body>
+   <form th:action="@{${action}}" method="post" th:object="${userRequest}"  enctype="multipart/form-data" >
+        <table>
+            <tbody>
+                <tr>
+                    <th>아이디</th>
+                    <td>
+                        <p><input type="text" th:field="*{id}" th:readonly="! *{#strings.isEmpty('id')}" /></p>
+                        <p th:each="item : ${#fields.errors('id')}" th:text="${item}" class="error-message" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td>
+                        <p><input type="text" th:field="*{name}" /> </p>
+                        <p th:each="item : ${#fields.errors('name')}" th:text="${item}" class="error-message" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>비밀번호</th>
+                    <td>
+                        <p><input type="password" th:field="*{password}" /></p>
+                        <p th:each="item : ${#fields.errors('password')}" th:text="${item}" class="error-message" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>profile(image)</th>
+                    <td>
+                        <p><input type="file" name="profileFile" /></p>
+                        <p>
+                            <img th:src="@{/profile(id=*{id})}" th:if="not *{#strings.isEmpty(profileFileName)}"  />
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <button type="submit" th:text="${action eq '/modify' ? '수정' : '등록' }" ></button>
+            <a href="/admin/users/">리스트</a>
+        </p>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+
+`	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112N"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112a"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112c"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+D
+java:S3740*"/Provide the parametrized type for this generic.(àÎØ	
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ùİ„µúÿÿÿÿ
+R
+java:S4973"<Strings and Boxed types should be compared using "equals()".(­ÊŒÕ
+—
+java:S2681l"|This line will not be executed in a loop; only the first line of this 2-line block will be. The rest will execute only once.(€¶º‡ıÿÿÿÿ
+b
+java:S2095S"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ó­««
+V	java:S125 "<This block of commented-out lines of code should be removed.(„¾¼çûÿÿÿÿ
+V	java:S125#"<This block of commented-out lines of code should be removed.(«ôŞ’üÿÿÿÿ
+]	java:S1256"<This block of commented-out lines of code should be removed.(æ½ïœùÿÿÿÿ8£†Ôÿò0
+N
+java:S1854X"8Remove this useless assignment to local variable "info".(·¨­
+Z
+java:S2147b"DCombine this catch with the one at line 96, which has the same body.(ï­£Ä
+?
+java:S1481X")Remove this unused "info" local variable.(·¨­
+Q	java:S125Z"<This block of commented-out lines of code should be removed.(ß¾Ãµ
+G
+java:S1128",Remove this unused import 'org.json.Cookie'.(ºÖÀĞûÿÿÿÿ

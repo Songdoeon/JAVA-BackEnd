@@ -1,0 +1,6 @@
+{
+    "address": "home",
+    "name": "song",
+    "detail": {},
+    "나이": 20
+}

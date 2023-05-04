@@ -1,0 +1,12 @@
+
+T
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(€Åü«
+a
+java:S2153"FRemove the boxing to "Long"; The argument is already of the same type.(Šùªùÿÿÿÿ
+V	java:S125#"<This block of commented-out lines of code should be removed.(ß×ó¨ıÿÿÿÿ
+S
+java:S1128"6Remove this unused import 'com.nhnacademy.board.User'.(ÖüêÀ8±æŞ ö0
+]
+java:S1128"@Remove this unused import 'com.nhnacademy.board.UserRepository'.(Ş³©”8±æŞ ö0
+b
+java:S1128"ERemove this unused import 'javax.servlet.annotation.MultipartConfig'.(Æ‡Ä»8±æŞ ö0

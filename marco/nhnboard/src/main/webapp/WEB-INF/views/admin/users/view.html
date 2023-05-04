@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원수정</title>
+    <link rel="stylesheet" href="/resources/style.css" />
+    <script type="text/javascript">
+        window.addEventListener('DOMContentLoaded',function(){
+           'use strict';
+           const btnDelete = document.getElementById("btn-delete");
+
+           btnDelete.addEventListener('click',function (){
+               const ans = confirm("삭제하시겠습니까?");
+               if(ans){
+                   const deleteForm = document.getElementById("deleteForm");
+                   deleteForm.submit();
+               }
+           });
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <colgroup>
+            <col style="width:150px;" />
+            <col style="width:300px;" />
+        </colgroup>
+        <tbody>
+            <tr>
+                <th>아이디</th>
+                <td th:text="${userRequest.id}"></td>
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td th:text="${userRequest.name}" ></td>
+            </tr>
+            <tr>
+                <th>사진</th>
+                <td>
+                    <p th:if="not ${#strings.isEmpty(userRequest.profileFileName)}" ><img th:src="@{/profile(id=${userRequest.id})}"  /></p>
+                    <p th:if="not ${#strings.isEmpty(userRequest.profileFileName)}" ><a th:href="@{/profile/download(id=${userRequest.id})}">다운로드</a></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a th:href="@{./list(page=${page}, size=${size})}">리스트</a>
+        <a th:href="@{./modify(page=${page}, size=${size}, id=${userRequest.id})}">수정</a>
+        <button id="btn-delete">삭제</button>
+    </div>
+
+    <form method="post" action="/admin/users/" id="deleteForm">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="hidden" name="id" th:value="${userRequest.id}" />
+    </form>
+
+</body>
+</html>

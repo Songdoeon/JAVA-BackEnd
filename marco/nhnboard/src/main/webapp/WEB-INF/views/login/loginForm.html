@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>login</title>
+    <link rel="stylesheet" href="/resources/style.css">
+</head>
+<body>
+
+</th:block>
+<div class="login-container">
+    <form th:method="post" th:action="@{/login/}" th:object="${loginRequest}" >
+        <p><input type="text" name="id" placeholder="회원아이디"  />
+        <p th:each="item : ${#fields.errors('id')}" th:text="${item}" class="error-message" />
+        </p>
+        <p><input type="password" name="password" placeholder="비밀번호" />
+        <p th:each="item : ${#fields.errors('password')}" th:text="${item}" class="error-message" />
+
+        <p  th:if="${not #strings.isEmpty(message)}" th:text="${message}" class="error-message" ></p>
+
+        <p><button type="submit">로그인</button> </p>
+    </form>
+</div>
+</body>
+</html>
