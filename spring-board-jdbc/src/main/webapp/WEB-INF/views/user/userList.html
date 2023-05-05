@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8"/>
+    <title>student - list</title>
+</head>
+
+<body>
+    <th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+    <h1>유저 리스트</h1>
+    <p><a href="/user/register" >유저(등록)</a></p>
+    <table border =1>
+        <caption></caption>
+        <thead>
+            <tr>
+                <th>아이디</th>
+                <th>비밀번호</th>
+                <th>이름</th>
+                <th>프로필 이미지</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${userList}" >
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.password}"></td>
+                <td th:text="${item.name}"></td>
+                <td>
+                    <a th:href="@{/user/view/(id=${item.id})}">조회</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+            <li>
+                <a th:if="${not #strings.isEmpty(prePage)}"
+                   th:href="@{/user(page=${prePage})}" th:text="${prePage}"/>
+            </li>
+            <li>
+                <a th:if="${not #strings.isEmpty(nextPage)}"
+                   th:href="@{/user(page=${nextPage})}" th:text="${nextPage}"/>
+            </li>
+</body>
+</html>
