@@ -1,0 +1,36 @@
+package com.nhnacademy.todo.config;
+
+import lombok.Data;
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
+
+@Component
+@Getter
+@PropertySource(value="classpath:/db.properties")
+public class DatabaseProperties {
+    @Value("${db.username}")
+    private String username;
+    @Value("${db.password}")
+    private String password;
+    @Value("${db.driverClassName}")
+    private String driverClassName;
+    @Value("${db.url}")
+    private String url;
+    @Value("${db.initialSize}")
+    private int initialSize;
+    @Value("${db.maxTotal}")
+    private int maxTotal;
+    @Value("${db.maxIdle}")
+    private int maxIdle;
+    @Value("${db.minIdle}")
+    private int minIdle;
+    @Value("${db.maxWaitMillis}")
+    private int maxWaitMillis;
+    @Value("${db.validationQuery}")
+    private String validationQuery;
+    @Value("${db.testOnBorrow}")
+    private boolean testOnBorrow;
+
+}
