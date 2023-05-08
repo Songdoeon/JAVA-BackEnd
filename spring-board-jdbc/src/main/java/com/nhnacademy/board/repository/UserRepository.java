@@ -14,11 +14,11 @@ public class UserRepository implements IUserRepository{
     Map<String,User> userMap = new HashMap<>();
     @Override
     public void add(User user) {
-        userMap.put(user.getId(),user);
+        userMap.put(user.getUserId(),user);
     }
     @Override
     public void modify(User user) {
-        userMap.put(user.getId(),user);
+        userMap.put(user.getUserId(),user);
     }
     @Override
     public void remove(String id) {

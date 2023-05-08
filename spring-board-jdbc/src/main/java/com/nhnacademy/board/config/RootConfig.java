@@ -6,11 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.nhnacademy.board.Base;
-import com.nhnacademy.board.domain.Post;
-import com.nhnacademy.board.domain.User;
-import com.nhnacademy.board.domain.Visitor;
-import com.nhnacademy.board.repository.PostRepository;
-import com.nhnacademy.board.repository.UserRepository;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -24,26 +20,6 @@ import org.springframework.stereotype.Controller;
     excludeFilters = { @ComponentScan.Filter(Controller.class)})
 public class RootConfig {
 
-
-    @Bean
-    public UserRepository userRepository() {
-        UserRepository userRepository = new UserRepository();
-        userRepository.add(new User("admin","1234","관리자"));
-        for (int i = 1; i < 100; i++) {
-            String id = "student" + i;
-            String password = i+"q";
-            String name = "아카데미" + i;
-            userRepository.add(new User(id,password,name,"no-image.png"));
-        }
-        return userRepository;
-    }
-    @Bean
-    public PostRepository postRepository(){
-        PostRepository postRepository = new PostRepository();
-        postRepository.register(new Post(Long.valueOf(1),"가입인사","반가워요","marco"));
-
-        return postRepository;
-    }
 
     @Bean
     public MessageSource messageSource(){

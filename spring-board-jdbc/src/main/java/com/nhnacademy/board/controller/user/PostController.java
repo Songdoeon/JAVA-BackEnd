@@ -54,7 +54,7 @@ public class PostController {
         Long id = postService.getId();
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
-        postService.register(new Post(id,postRegisterRequest.getTitle(),postRegisterRequest.getContent(),user.getId()));
+        postService.register(new Post(id,postRegisterRequest.getTitle(),postRegisterRequest.getContent(),user.getUserId()));
 
         return "redirect:/post?page=1";
     }
@@ -90,7 +90,7 @@ public class PostController {
     public String update(@RequestParam(name="id")Long id,PostRegisterRequest postRegisterRequest,HttpServletRequest req){
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
-        postService.modify(id,new Post(id,postRegisterRequest.getTitle(),postRegisterRequest.getContent(),user.getId()));
+        postService.modify(id,new Post(id,postRegisterRequest.getTitle(),postRegisterRequest.getContent(),user.getUserId()));
 
         return "redirect:/post?page=1";
     }

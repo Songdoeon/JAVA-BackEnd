@@ -2,9 +2,11 @@ package com.nhnacademy.board.controller.login;
 
 import com.nhnacademy.board.controller.BaseController;
 import com.nhnacademy.board.domain.User;
-import com.nhnacademy.board.repository.UserRepository;
+import com.nhnacademy.board.mapper.UserMapper;
 import com.nhnacademy.board.request.LoginRequest;
 import com.nhnacademy.board.service.LoginService;
+import com.nhnacademy.board.service.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,14 +24,11 @@ import java.util.Objects;
 
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 public class LoginController implements BaseController {
     LoginService loginService;
-    UserRepository userRepository;
+    UserService userService;
 
-    public LoginController(LoginService loginService,UserRepository userRepository) {
-        this.loginService = loginService;
-        this.userRepository = userRepository;
-    }
     @GetMapping("/login")
     public String getLogin(Model model,User user){
         if(Objects.nonNull(user)){
@@ -41,7 +40,7 @@ public class LoginController implements BaseController {
     }
     @PostMapping("/login")
     public String loginForm(@Valid LoginRequest loginRequest, BindingResult bindingResult, Model model, RedirectAttributes red, HttpServletRequest req,HttpServletResponse rep){
-        User user = userRepository.getUser(loginRequest.getUserId());
+        User user = userService.getUser(loginRequest.getUserId());
         if(bindingResult.hasFieldErrors()){
             model.addAttribute("loginRequest", loginRequest);
             return "login/loginForm";

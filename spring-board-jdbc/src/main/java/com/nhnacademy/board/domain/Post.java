@@ -12,8 +12,6 @@ public class Post implements IPost{
     private String content;
     private String writerUserId;
     private int viewCount;
-
-
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date writeTime;
 

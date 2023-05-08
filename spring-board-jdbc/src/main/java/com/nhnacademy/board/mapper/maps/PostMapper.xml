@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nhnacademy.board.mapper.PostMapper">
+    <insert id="register" parameterType="com.nhnacademy.board.domain.Post">
+        insert into post set
+        title=#{title},
+        content=#{content},
+        writerUserId=#{writerUserId},
+        viewCount=#{viewCount},
+        created_at=now()
+        <selectKey keyProperty="id" resultType="Long">
+            select last_insert_id()
+        </selectKey>
+    </insert>
+    <update id="modify">
+        update post set
+                        title=#{title},
+                        content=#{content},
+                        created_at=now()
+        where
+            id=#{id}
+    </update>
+    <delete id="remove" >
+        delete from post where id=#{id}
+    </delete>
+    <select id="getPost" resultType="com.nhnacademy.board.domain.Post">
+        select * from post where id= #{id}
+    </select>
+    <select id="getPosts" resultType="com.nhnacademy.board.domain.Post">
+        select * from post
+    </select>
+
+</mapper>
+

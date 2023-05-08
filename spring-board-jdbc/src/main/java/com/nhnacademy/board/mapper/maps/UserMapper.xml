@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nhnacademy.board.mapper.UserMapper">
+    <insert id="add" parameterType="com.nhnacademy.board.domain.User">
+        insert into user set
+        user_id=#{userId},
+        password=#{password},
+        name=#{name},
+        profileFileName=#{profileFileName},
+        <selectKey keyProperty="id" resultType="Long">
+            select last_insert_id()
+        </selectKey>
+
+    </insert>
+    <update id="modify">
+        update user set
+                user_id=#{userId},
+                password=#{password},
+        where
+            id=#{id}
+    </update>
+    <delete id="remove" >
+        delete from user where user_id=#{id}
+    </delete>
+    <select id="getUser" resultType="com.nhnacademy.board.domain.User">
+        select * from user where user_id= #{id}
+    </select>
+    <select id="getUsers" resultType="com.nhnacademy.board.domain.User">
+        select * from user
+    </select>
+    <select id="getNum" resultType="int">
+        select count(*) from user
+    </select>
+    <select id="getPartUser" resultType="com.nhnacademy.board.domain.User">
+        select * from user where id between #{num}*10-9 and #{num}*10
+    </select>
+</mapper>
+

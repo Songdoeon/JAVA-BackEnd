@@ -21,7 +21,7 @@
         </thead>
         <tbody>
             <tr th:each="item : ${userList}" >
-                <td th:text="${item.id}"></td>
+                <td th:text="${item.userId}"></td>
                 <td th:text="${item.password}"></td>
                 <td th:text="${item.name}"></td>
                 <td>
@@ -30,13 +30,19 @@
             </tr>
         </tbody>
     </table>
-            <li>
-                <a th:if="${not #strings.isEmpty(prePage)}"
-                   th:href="@{/user(page=${prePage})}" th:text="${prePage}"/>
-            </li>
-            <li>
-                <a th:if="${not #strings.isEmpty(nextPage)}"
-                   th:href="@{/user(page=${nextPage})}" th:text="${nextPage}"/>
-            </li>
+<!--            <li>-->
+<!--                <a th:if="${not #strings.isEmpty(prePage)}"-->
+<!--                   th:href="@{/user(page=${prePage})}" th:text="${prePage}"/>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a th:if="${not #strings.isEmpty(nextPage)}"-->
+<!--                   th:href="@{/user(page=${nextPage})}" th:text="${nextPage}"/>-->
+<!--            </li>-->
+    <a th:href="@{/user(page=1)}" th:text="firstPage"/>
+    <a th:if="${page}=='1'"
+            th:href="@{/user(page=${page}-1)}" th:text="prevPage"/>
+    <a th:if="${page}==${size}"
+            th:href="@{/user(page=${page}+1)}" th:text="nextPage"/>
+    <a th:href="@{/user(page=${size})}" th:text="endPage"/>
 </body>
 </html>

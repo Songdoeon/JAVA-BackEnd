@@ -6,6 +6,9 @@ import com.nhnacademy.board.domain.User;
 import com.nhnacademy.board.exception.NotWriter;
 import com.nhnacademy.board.repository.PostRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,6 +17,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
+@Transactional
 public class PostService {
     PostRepository postRepository;
 
@@ -37,7 +41,7 @@ public class PostService {
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
         Post beforePost = postRepository.getPost(id);
-        if(!beforePost.getWriterUserId().equals(user.getId())){
+        if(!beforePost.getWriterUserId().equals(user.getUserId())){
             throw new NotWriter();
         }
         postRepository.remove(id);

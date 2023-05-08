@@ -31,23 +31,13 @@ public class AdminController{
 
     @GetMapping
     public String admin(@RequestParam(name = "page")int page, Model model){
-        List<User> userList = userService.getUserList();
-        int last = userList.size()/10;
-        List<User> userPartList = userService.getPartList(page);
+        int pages = page != 0 ? page : 1;
+        int size = userService.getNum();
+        List<User> userPartList = userService.getPartList(pages);
         model.addAttribute("userList",userPartList);
-        if(last==1){
-            return "user/userList";
-        }
-        if(page==1){
-            model.addAttribute("nextPage",2);
-        }
-        else if(page==last){
-            model.addAttribute("prePage",page-1);
-        }
-        else{
-            model.addAttribute("prePage",page-1);
-            model.addAttribute("nextPage",page+1);
-        }
+        model.addAttribute("size",size);
+        model.addAttribute("page",pages);
+
         return "user/userList";
     }
 
