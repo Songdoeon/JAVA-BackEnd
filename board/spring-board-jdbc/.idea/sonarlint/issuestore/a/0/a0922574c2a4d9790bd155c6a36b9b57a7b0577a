@@ -1,0 +1,10 @@
+
+^
+java:S2259""HA "NullPointerException" could be thrown; "getObject()" can return null.(ÆìĞ¶
+d
+java:S1128"BRemove this unused import 'org.apache.ibatis.mapping.Environment'.(ïâØÚúÿÿÿÿ8†àÁ³ÿ0
+
+java:S1128
+"]Remove this unused import 'org.springframework.jdbc.datasource.DataSourceTransactionManager'.(ˆµÍıÿÿÿÿ8‡àÁ³ÿ0
+l
+java:S1128"ORemove this unused import 'org.springframework.transaction.TransactionManager'.(‚¸à«8‡àÁ³ÿ0

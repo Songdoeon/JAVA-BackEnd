@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:HH="http://www.w3.org/1999/xhtml">
+<head>
+    <title>게시물-조회</title>
+    <link rel="stylesheet" href="/resources/style.css" />
+</head>
+<body>
+    <th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+    <table>
+        <caption></caption>
+        <tbody>
+            <tr>
+                <td>번호</td>
+                <td th:text="${post.id}"></td>
+            </tr>
+            <tr>
+                <td>제목</td>
+                <td th:text="${post.title}"></td>
+            </tr>
+            <tr>
+                <td>내용</td>
+                <td th:text="${post.content}"></td>
+            </tr>
+            <tr>
+                <td>작성자</td>
+                <td th:text="${post.writerUserId}"></td>
+            </tr>
+            <tr>
+                <td>작성 시간</td>
+                <td th:text="${post.writeTime}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <li><a href="/post?page=1">리스트</a></li>
+        <li>
+            <a th:href="@{/post/update(id=${post.id})}">수정</a>
+        </li>
+        <li>
+            <form method="post" action="/post/delete">
+                <input type="hidden" name="id" th:value="${post.id}" />
+                <button type="submit">삭제</button>
+            </form>
+        </li>
+
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8"/>
+    <title>student - list</title>
+</head>
+
+<body>
+    <th:block th:insert="~{login/loginInfo :: userinfo}" ></th:block>
+    <h1>게시판</h1>
+    <p><a href="/post/register" >게시글(등록)</a></p>
+    <table border =1>
+        <caption></caption>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${postList}" >
+                <td th:text="${item.id}"></td>
+                <td><a th:href = "@{/post/view(id=${item.id})}" th:text = "${item.title}"></a></td>
+                <td><a th:href = "@{/user/view(id=${item.writerUserId})}"  th:text="${item.writerUserId}"/></td>
+                <td th:text="${item.viewCount}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/post(page=1)}" th:text="firstPage"/>
+    <a th:if="${page}!='1'"
+       th:href="@{/post(page=${page}-1)}" th:text="prevPage"/>
+    <a th:if="${page}!=${size}"
+       th:href="@{/post(page=${page}+1)}" th:text="nextPage"/>
+    <a th:href="@{/post(page=${size})}" th:text="endPage"/>
+</body>
+</html>
