@@ -20,7 +20,6 @@ public class LoginService {
             return false;
         }
     }
-
     public boolean adminMatch(User user) {
         if (user.getUserId().equals("admin") && user.getPassword().equals("1234")) {
             return true;
@@ -28,5 +27,4 @@ public class LoginService {
             return false;
         }
     }
-
 }

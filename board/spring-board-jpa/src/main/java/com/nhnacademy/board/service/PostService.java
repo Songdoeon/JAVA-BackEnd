@@ -4,6 +4,8 @@ package com.nhnacademy.board.service;
 import com.nhnacademy.board.domain.Post;
 import com.nhnacademy.board.domain.User;
 import com.nhnacademy.board.exception.NotWriter;
+import com.nhnacademy.board.exception.StudentNotFoundException;
+import com.nhnacademy.board.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +25,7 @@ public class PostService {
 
     private final EntityManager entityManager;
 
+    private final PostRepository postRepository;
 
     public Long getId(){
         Query query = entityManager.createNativeQuery("select count(*) from Posts");
@@ -31,18 +35,18 @@ public class PostService {
     }
 
     public Post getPost(Long id){
-        Post post = entityManager.find(Post.class,id);
+        Post post = postRepository.findById(id).get();
         return post;
     }
 
     public void delete(Long id, HttpServletRequest req){
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
-        Post beforePost = entityManager.find(Post.class,id);
+        Post beforePost = postRepository.findById(id).get();
         if(!beforePost.getWriterUserId().equals(user.getUserId())){
             throw new NotWriter();
         }
-        entityManager.remove(beforePost);
+        postRepository.delete(beforePost);
     }
     public List<Post> getPartList(int num){
         int end = (num*10)-10;
@@ -58,14 +62,14 @@ public class PostService {
     }
 
     public void register(Post post){
-        entityManager.persist(post);
+        postRepository.saveAndFlush(post);
     }
 
     public void modify(Long id,Post post){
-        Post beforePost = entityManager.find(Post.class,id);
+        Post beforePost = postRepository.findById(id).get();
         if(!beforePost.getWriterUserId().equals(post.getWriterUserId())){
             throw new NotWriter();
         }
-        entityManager.persist(post);
+        postRepository.saveAndFlush(post);
     }
 }

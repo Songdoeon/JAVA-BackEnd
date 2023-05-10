@@ -6,11 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.nhnacademy.board.Base;
-import com.nhnacademy.board.domain.Post;
-import com.nhnacademy.board.domain.User;
-import com.nhnacademy.board.domain.Visitor;
-import com.nhnacademy.board.repository.PostRepository;
-import com.nhnacademy.board.repository.UserRepository;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -35,7 +30,7 @@ public class RootConfig {
         dataSource.setUrl("jdbc:h2:~/spring-jpa;DATABASE_TO_UPPER=false;"
                 + "INIT=RUNSCRIPT FROM 'classpath:/script/schema.sql'");
         dataSource.setUsername("root");
-        dataSource.setPassword("@ehdjs78");
+        dataSource.setPassword("");
 
         dataSource.setInitialSize(20);
         dataSource.setMaxTotal(20);

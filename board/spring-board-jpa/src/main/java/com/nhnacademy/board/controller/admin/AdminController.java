@@ -4,6 +4,8 @@ import com.nhnacademy.board.domain.User;
 import com.nhnacademy.board.request.UserRegisterRequest;
 import com.nhnacademy.board.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,14 +33,13 @@ public class AdminController{
     }
 
     @GetMapping
-    public String admin(@RequestParam(name = "page")int page, Model model){
-        int pages = page != 0 ? page : 1;
-        int size = userService.getUserList().size();
-        size=(size/10)+1;
-        List<User> userPartList = userService.getPartList(pages);
+    public String admin(Pageable pageable, Model model){
+        Page page = userService.paging(pageable);
+        List<User> userPartList = page.getContent();
+
         model.addAttribute("userList",userPartList);
-        model.addAttribute("size",size);
-        model.addAttribute("page",pages);
+        model.addAttribute("size",page.getTotalPages()-1);
+        model.addAttribute("page",pageable.getPageNumber());
         return "user/userList";
     }
 
@@ -63,7 +64,7 @@ public class AdminController{
             fileName = "no-image.png";
         }
         userService.register(new User(id,password,name,fileName));
-        return "redirect:/user?page=1";
+        return "redirect:/user?page=1&size=10";
     }
     @GetMapping("/view")
     public String views(@RequestParam(name = "id") String id, Model model){
@@ -75,7 +76,7 @@ public class AdminController{
     @PostMapping("/delete")
     public String delete(@RequestParam(name = "id") String id){
         userService.delete(id);
-        return "redirect:/user?page=1";
+        return "redirect:/user?page=1&size=10";
     }
     @GetMapping("/update")
     public String getUpdate(@RequestParam(name = "id")String id,Model model){
@@ -97,7 +98,7 @@ public class AdminController{
             fileName = "no-image.png";
         }
         userService.modify(new User(id,password,name,fileName));
-        return "redirect:/user?page=1";
+        return "redirect:/user?page=1&size=10";
     }
 
 

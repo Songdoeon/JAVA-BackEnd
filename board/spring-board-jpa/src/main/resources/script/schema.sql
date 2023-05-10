@@ -2,10 +2,10 @@ CREATE TABLE IF NOT EXISTS `Posts` (
     `post_id` bigint NOT NULL auto_increment,
     `title`   VARCHAR(50) NOT NULL,
     `content`  VARCHAR(200) NOT NULL,
-    `writer_userId`  VARCHAR(200) NOT NULL,
+    `user_id`  VARCHAR(200) NOT NULL,
     `view_count`  int NOT NULL,
     `write_time` DATETIME,
-    PRIMARY KEY(`post_id`)
+    PRIMARY KEY(`post_id`,`user_id`)
 );
 
 create table if not exists `Users` (
@@ -30,9 +30,9 @@ MERGE INTO `Users` KEY ( `user_id` ) VALUES ( 'student9', '1234','학생9','no-i
 MERGE INTO `Users` KEY ( `user_id` ) VALUES ( 'student10', '1234','학생10','no-image.png' );
 MERGE INTO `Users` KEY ( `user_id` ) VALUES ( 'student11', '1234','학생11','no-image.png' );
 
-MERGE INTO `Posts` KEY ( `post_id` ) VALUES ( 1,'제목1', '내용1','admin',0,now() );
-MERGE INTO `Posts` KEY ( `post_id` ) VALUES ( 2,'제목2', '내용2','student1',0,now() );
-MERGE INTO `Posts` KEY ( `post_id` ) VALUES ( 3,'제목3', '내용3','student2',0,now() );
+MERGE INTO `Posts` KEY ( `post_id`,`user_id` ) VALUES ( 1,'제목1', '내용1','admin',0,now() );
+MERGE INTO `Posts` KEY ( `post_id`,`user_id` ) VALUES ( 2,'제목2', '내용2','student1',0,now() );
+MERGE INTO `Posts` KEY ( `post_id`,`user_id` ) VALUES ( 3,'제목3', '내용3','student2',0,now() );
 
 
 

@@ -52,12 +52,12 @@ public class LoginController implements BaseController {
             HttpSession session = req.getSession(true);
             session.setAttribute("user", user);
 
-            return "redirect:/user?page=1";
+            return "redirect:/user?page=0&size=10";
         }
         if(loginService.match(user,loginRequest) ){
             HttpSession session = req.getSession(true);
             session.setAttribute("user", user);
-            return "redirect:/post?page=1";
+            return "redirect:/post?page=0&size=10";
         }
         return "redirect:/login";
     }
