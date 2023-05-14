@@ -20,7 +20,6 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Transactional
 public class UserService {
-    private final EntityManager entityManager;
     private final UserRepository userRepository;
     public User getUser(String id){
         User user =  userRepository.findById(id).get();
@@ -32,20 +31,6 @@ public class UserService {
     public void delete(String id){
         User user =  userRepository.findById(id).get();
         userRepository.delete(user);
-    }
-
-    public List<User> getUserList(){
-        List<User> userList = userRepository.findAll();
-        return userList;
-    }
-    public List<User> getPartList(int num){
-        int end = (num*10)-10;
-        TypedQuery<User> query = entityManager.createQuery("SELECT u from User u", User.class).setFirstResult(end).setMaxResults(10);
-        List<User> userList = query.getResultList();
-
-        userRepository.findAll();
-
-        return userList;
     }
     public void register(User user){
         userRepository.saveAndFlush(user);

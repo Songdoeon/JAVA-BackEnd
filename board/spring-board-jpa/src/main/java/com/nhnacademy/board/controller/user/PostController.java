@@ -4,6 +4,8 @@ import com.nhnacademy.board.domain.Post;
 import com.nhnacademy.board.domain.User;
 import com.nhnacademy.board.request.PostRegisterRequest;
 import com.nhnacademy.board.service.PostService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,15 +30,15 @@ public class PostController {
     }
 
     @GetMapping
-    public String list(@RequestParam(name = "page")int page,Model model){
-        int pages = page != 0 ? page : 1;
-        int size = postService.getPostList().size();
-        size=(size/10)+1;
-        List<Post> postList = postService.getPartList(pages);
+    public String list(Pageable pageable, Model model){
+        Page page = postService.paging(pageable);
+        List<Post> postList = page.getContent();
+
         model.addAttribute("postList",postList);
-        model.addAttribute("size",size);
-        model.addAttribute("page",pages);
+        model.addAttribute("size",page.getTotalPages()-1);
+        model.addAttribute("page",pageable.getPageNumber());
         return "post/postList";
+
     }
 
     @PostMapping("/register")

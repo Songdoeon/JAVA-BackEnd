@@ -22,6 +22,8 @@ public class LoginCheckFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
         Filter.super.init(filterConfig);
         filterConfig.getInitParameter("excludeUrls");
+
+        //bean 가져오기
         WebApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(filterConfig.getServletContext());
         PropertiesConfig propertiesConfig = (PropertiesConfig) context.getBean("propertiesConfig");
         excludeUrls = propertiesConfig.getExcludeUrls();
