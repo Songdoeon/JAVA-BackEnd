@@ -1,0 +1,43 @@
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "송도언",
+  "residentRegistrationNumber": "980914-1234561",
+  "genderCode": "남",
+  "birthDate": "1998-09-14T07:22:00",
+  "birthPlaceCode": "자택",
+  "registrationBaseAddress": "경기도 성남시 분당구 대왕판교로645번길",
+  "deathDate": "2021-04-29T09:03:00",
+  "deathPlaceCode": "주택",
+  "deathPlaceAddress": "강원도 고성군 금강산로 290번길"
+}
+
+###
+
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "남석환",
+  "residentRegistrationNumber": "540514-1234562",
+  "genderCode": "남",
+  "birthDate": "1954-05-14T17:30:00",
+  "birthPlaceCode": "병원",
+  "registrationBaseAddress": "경기도 성남시 분당구 대왕판교로645번길"
+}
+
+###
+
+
+
+PUT /residents/17
+Content-Type: application/json
+Host: localhost:8080
+
+{
+  "name": "updateTestName",
+  "registrationBaseAddress": "updateTestAddress"
+}
