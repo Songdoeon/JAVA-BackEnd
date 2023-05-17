@@ -2,7 +2,6 @@ package com.nhnacademy.board.init;
 
 import com.nhnacademy.board.config.RootConfig;
 import com.nhnacademy.board.config.WebConfig;
-import com.nhnacademy.board.domain.Visitor;
 import com.nhnacademy.board.filter.CountFilter;
 import com.nhnacademy.board.filter.LoginCheckFilter;
 import com.nhnacademy.board.filter.VisitorFilter;
