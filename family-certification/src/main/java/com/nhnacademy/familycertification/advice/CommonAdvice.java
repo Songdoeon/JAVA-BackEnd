@@ -25,11 +25,4 @@ public class CommonAdvice {
         log.info("error:{}",notFoundResidentException.getMessage(),notFoundResidentException);
         return "error/error";
     }
-//    @ExceptionHandler(NotFoundResidentException.class)
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
-//    public String notExistCertificateException(NotExistCertificateException notExistCertificateException){
-//        log.info("error:{}",notExistCertificateException.getMessage(),notExistCertificateException);
-//        return "error/error";
-//    }
-
 }

@@ -1,0 +1,157 @@
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "송도언",
+  "residentRegistrationNumber": "980914-1234561",
+  "genderCode": "남",
+  "residentId": "admin",
+  "password": "1234",
+  "birthDate": "1998-09-14T07:22:00",
+  "birthPlaceCode": "자택",
+  "registrationBaseAddress": "경기도 성남시 분당구 대왕판교로645번길",
+  "deathDate": "2021-04-29T09:03:00",
+  "deathPlaceCode": "주택",
+  "deathPlaceAddress": "강원도 고성군 금강산로 290번길"
+}
+
+###
+
+PUT /residents/8 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "남석환",
+  "registrationBaseAddress": "경기도 성남시 분당구 대왕판교로645번길"
+}
+
+###
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "남길동",
+  "residentRegistrationNumber": "130914-1234561",
+  "genderCode": "남",
+  "residentId": "user1",
+  "password": "1234",
+  "birthDate": "1913-09-14T07:22:00",
+  "birthPlaceCode": "자택",
+  "registrationBaseAddress": "경기도 성남시 분당구 대왕판교로645번길",
+  "deathDate": "2021-04-29T09:03:00",
+  "deathPlaceCode": "주택",
+  "deathPlaceAddress": "강원도 고성군 금강산로 290번길"
+}
+###
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "남석환",
+  "residentRegistrationNumber": "540514-1234562",
+  "genderCode": "남",
+  "residentId": "user2",
+  "password": "1234",
+  "birthDate": "1954-05-14T17:30:00",
+  "birthPlaceCode": "병원",
+  "registrationBaseAddress": "서울특별시 중구 세종대로 110번길",
+  "deathDate": null,
+  "deathPlaceCode": null,
+  "deathPlaceAddress": null
+}
+###
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "박한나",
+  "residentRegistrationNumber": "551022-1234563",
+  "genderCode": "여",
+  "residentId": "user3",
+  "password": "1234",
+  "birthDate": "1955-10-22T11:15:00",
+  "birthPlaceCode": "병원",
+  "registrationBaseAddress": "경기도 성남시 분당구 대왕판교로 645번길",
+  "deathDate": null,
+  "deathPlaceCode": null,
+  "deathPlaceAddress": null
+}
+###
+
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "남기준",
+  "residentRegistrationNumber": "790510-1234564",
+  "genderCode": "남",
+  "residentId": "user4",
+  "password": "1234",
+  "birthDate": "1979-05-10T20:45:00",
+  "birthPlaceCode": "병원",
+  "registrationBaseAddress": "경기도 성남시 분당구 대왕판교로 645번길",
+  "deathDate": null,
+  "deathPlaceCode": null,
+  "deathPlaceAddress": null
+}
+###
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "이주은",
+  "residentRegistrationNumber": "820821-1234565",
+  "genderCode": "여",
+  "residentId": "user5",
+  "password": "1234",
+  "birthDate": "1982-08-21T01:28:00",
+  "birthPlaceCode": "병원",
+  "registrationBaseAddress": "경기도 수원시 팔달구 효원로 1번길",
+  "deathDate": null,
+  "deathPlaceCode": null,
+  "deathPlaceAddress": null
+}
+###
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "이선미",
+  "residentRegistrationNumber": "851205-1234566",
+  "genderCode": "여",
+  "residentId": "user6",
+  "password": "1234",
+  "birthDate": "1985-12-05T22:01:00",
+  "birthPlaceCode": "병원",
+  "registrationBaseAddress": "경기도 수원시 팔달구 효원로 1번길",
+  "deathDate": null,
+  "deathPlaceCode": null,
+  "deathPlaceAddress": null
+}
+###
+POST /residents HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "name": "남기석",
+  "residentRegistrationNumber": "120315-1234567",
+  "genderCode": "남",
+  "residentId": "user7",
+  "password": "1234",
+  "birthDate": "2012-03-15T14:59:00",
+  "birthPlaceCode": "병원",
+  "registrationBaseAddress": "경기도 성남시 분당구 대왕판교로 645번길",
+  "deathDate": null,
+  "deathPlaceCode": null,
+  "deathPlaceAddress": null
+}
+###

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html lang="ko" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+  <span sec:authentication="name"/>,&nbsp;
+  <a href="/logout">Logout</a>
+</div>
+<div sec:authorize="!isAuthenticated()">
+  <a href="/userLogin">Login</a><br>
+  <a href="/login">Login_Oauth</a>
+</div>
+</body>
+</html>

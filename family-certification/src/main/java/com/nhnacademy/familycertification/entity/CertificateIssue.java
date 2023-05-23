@@ -3,10 +3,12 @@ package com.nhnacademy.familycertification.entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -24,7 +26,7 @@ public class CertificateIssue {
 
     @Column(name = "certificate_type_code")
     private String certificateTypeCode;
-
+//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul")
     @Column(name = "certificate_issue_date")
-    private LocalDateTime certificateIssueDate;
+    private LocalDate certificateIssueDate;
 }

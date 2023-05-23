@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<table border="1" style="width: 1400px; border-collapse: collapse; text-align: center">
+    <tr>
+        <td>주민등록등본<br>
+            발급일 <span th:text="${certificateInfo.certificateIssueDate}"></span>
+            증명서확인번호 <span th:text="${certificateInfo.certificateConfirmationNumber}"></span>
+        </td>
+    </tr>
+</table>
+<table border="1" style="width: 1400px; border-collapse: collapse; text-align: center">
+    <tr>
+        <td>세대주</td>
+        <td th:text ="${household.householdResidentSerialNumber.name}"></td>
+        <td>세대구성사유<br>일자</td>
+        <td th:text ="${household.householdCompositionReasonCode}"><span th:text ="${household.householdCompositionDate}"></span></td>
+    </tr>
+</table>
+  <table border="1" style="width: 1400px; border-collapse: collapse; text-align: center">
+    <tr>
+      <td>상태</td>
+      <td>주소</td>
+      <td>신고일</td>
+    </tr>
+      <th:block th:each="address : ${addressList}">
+        <tr>
+            <td th:text="${address.lastAddressYn} == 'Y' ? '현주소' : '전주소'"></td>
+          <td th:text="${address.houseMovementAddress}"></td>
+          <td th:text="${address.pk.houseMovementReportDate}"></td>ㅂ
+        </tr>
+      </th:block>
+  </table>
+<br>
+<table border="1" style="width: 1400px; border-collapse: collapse; text-align: center">
+    <tr>
+        <td>세대주 관계</td>
+        <td>성명</td>
+        <td>주민등록번호</td>
+        <td>신고일</td>
+        <td>변동사유</td>
+    </tr>
+    <th:block th:each="family : ${familyList}">
+        <tr>
+        <td th:text="${family.householdRelationshipCode}"></td>
+        <td th:text="${family.resident.name}"></td>
+        <td th:text="${family.resident.residentRegistrationNumber}"></td>
+          <td th:text="${#temporals.format(family.reportDate,'yyyy-mm-dd')}"></td>
+        <td th:text="${family.residentRegistrationNumber}"></td>
+      </tr>
+    </th:block>
+  </table>
+</body>
+
+</html>

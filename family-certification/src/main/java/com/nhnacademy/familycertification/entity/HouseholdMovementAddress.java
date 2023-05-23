@@ -1,10 +1,11 @@
 package com.nhnacademy.familycertification.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @ToString
 @Builder
@@ -23,6 +24,7 @@ public class HouseholdMovementAddress {
     @JoinColumn(name = "household_serial_number")
     private Household household;
 
+    @Setter
     @Column(name = "house_movement_address")
     private String houseMovementAddress;
 
@@ -41,7 +43,7 @@ public class HouseholdMovementAddress {
         private Long householdSerialNumber;
 
         @Column(name = "house_movement_report_date")
-        private LocalDateTime houseMovementReportDate;
+        @JsonFormat(pattern = "yyyy-MM-dd")
+        private LocalDate houseMovementReportDate;
     }
-
 }

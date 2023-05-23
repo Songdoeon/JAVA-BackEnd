@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table border="1" style="width: 1400px; border-collapse: collapse; text-align: center">
+    <tr>
+        <td>사망신고서<br>사망일:<span th:text="${report.birthDeathReportDate}"></span></td>
+    </tr>
+</table>
+<br>
+<table border="1" style="width: 1400px; border-collapse: collapse; text-align: center">
+    <tr>
+        <td rowspan="4">사망자</td>
+        <td colspan="2">성명</td>
+        <td th:text="${resident.name}"></td>
+        <td>주민등록번호</td>
+        <td th:text="${resident.residentRegistrationNumber}"></td>
+    </tr>
+    <tr>
+        <td colspan="2">사망일시</td>
+        <td colspan="3" th:text="${date}"></td>
+    </tr>
+    <tr>
+        <td rowspan="2">사망장소</td>
+        <td>구분</td>
+        <td colspan="3" th:text="${resident.deathPlaceCode}"></td>
+    </tr>
+    <tr>
+        <td>주소</td>
+        <td colspan="3" th:text="${resident.deathPlaceAddress}"></td>
+    </tr>
+</table>
+<br>
+<table border="1" style="width: 1400px; border-collapse: collapse; text-align: center">
+    <tr>
+        <td rowspan="3">신고인</td>
+        <td>성명</td>
+        <td th:text="${report.reportResidentSerialNumber.name}"></td>
+        <td>주민등록번호</td>
+        <td th:text="${report.reportResidentSerialNumber.residentRegistrationNumber}"></td>
+    </tr>
+    <tr>
+        <td>자격</td>
+        <td colspan="3" th:text="${report.birthReportQualificationsCode}"></td>
+    </tr>
+    <tr>
+        <td>이메일</td>
+        <td th:if="${report.emailAddress} != null"
+                th:text="${report.emailAddress}"></td>
+        <td th:if="${report.emailAddress} == null"></td>
+        <td>전화번호</td>
+        <td th:if="${report.phoneNumber} != null"
+            th:text="${report.phoneNumber}"></td>
+        <td th:if="${report.phoneNumber} == null"></td>
+    </tr>
+</table>
+</body>
+</html>

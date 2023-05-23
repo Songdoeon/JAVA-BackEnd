@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border=1>
+    <th:block th:each="certificate : ${list}">
+        <tr>
+            <td th:text="${certificate.certificateConfirmationNumber}"></td>
+            <td th:text="${certificate.certificateTypeCode}"></td>
+            <td th:text="${certificate.certificateIssueDate}"></td>
+        </tr>
+    </th:block>
+</table>
+    <a th:href="@{/list(num=${num},page=0,size=10)}" th:text="firstPage"/>
+    <a th:if="${page}!='0'"
+       th:href="@{/list(num=${num},page=${page}-1,size=10)}" th:text="prevPage"/>
+    <a th:if="${page}!=${size}"
+       th:href="@{/list(num=${num},page=${page}+1,size=10)}" th:text="nextPage"/>
+    <a th:href="@{/list(num=${num},page=${size},size=10)}" th:text="endPage"/>
+</body>
+</html>

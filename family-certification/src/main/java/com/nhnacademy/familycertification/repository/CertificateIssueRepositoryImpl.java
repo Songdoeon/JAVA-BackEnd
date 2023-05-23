@@ -24,6 +24,7 @@ public class CertificateIssueRepositoryImpl extends QuerydslRepositorySupport im
                         certificateIssue.certificateIssueDate))
                 .where((resident.residentSerialNumber.eq(serialNumber))
                         .and(certificateIssue.certificateTypeCode.eq(typeCode)))
+                .limit(1)
                 .fetchOne();
     }
 }

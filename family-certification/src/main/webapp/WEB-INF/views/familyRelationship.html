@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,16 +6,24 @@
 </head>
 <body>
 
-<h1>가족관계증명서</h1>
-
-발급일 <span th:text="${certificateInfo.certificateIssueDate}"></span>
-증명서확인번호 <span th:text="${certificateInfo.certificateConfirmationNumber}"></span>
-
+<table border="1" style="width: 1400px; border-collapse: collapse; text-align: center">
+<tr>
+  <td>가족관계증명서<br>
+    발급일 <span th:text="${certificateInfo.certificateIssueDate}"></span>
+    증명서확인번호 <span th:text="${certificateInfo.certificateConfirmationNumber}"></span>
+  </td>
+</tr>
+</table>
 <br>
 
-<div style="display: flex; justify-content: center;">
   <table border="1" style="width: 1400px; border-collapse: collapse; text-align: center">
-    <thead>
+    <tr>
+      <td>등록기준지<br>본적</td>
+      <td th:text="${resident.registrationBaseAddress}"></td>
+    </tr>
+  </table>
+  <br>
+    <table border="1" style="width: 1400px; border-collapse: collapse; text-align: center">
     <tr>
       <td>구분</td>
       <td>성명</td>
@@ -23,9 +31,6 @@
       <td>주민번호</td>
       <td>성별</td>
     </tr>
-    </thead>
-
-    <tbody>
     <tr>
       <td>본인</td>
       <td th:text="${resident.name}"></td>
@@ -42,10 +47,6 @@
         <td th:text="${family.familyResident.genderCode}"></td>
       </tr>
     </th:block>
-    </tbody>
   </table>
-
-</div>
-
 </body>
 </html>

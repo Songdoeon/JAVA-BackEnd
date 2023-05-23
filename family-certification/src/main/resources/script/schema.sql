@@ -27,7 +27,7 @@ create table birth_death_report_resident
 (
     resident_serial_number           int     not null,
     birth_death_type_code            varchar(20) not null,
-    report_resident_serial_number    int     not null auto_increment,
+    report_resident_serial_number    int     not null ,
     birth_death_report_date          date        not null,
     birth_report_qualifications_code varchar(20) null,
     death_report_qualifications_code varchar(20) null,
@@ -99,9 +99,6 @@ insert into birth_death_report_resident values (7, '출생', 4, '20120317', '부
 insert into birth_death_report_resident values (1, '사망', 2, '20200502', '비동거친족', null, null, '010-2345-6789');
 
 
-
-
-
 insert into family_relationship values(1, 2, '자녀');
 insert into family_relationship values(2, 1, '부');
 insert into family_relationship values(2, 3, '배우자');
@@ -116,8 +113,6 @@ insert into family_relationship values(5, 4, '배우자');
 insert into family_relationship values(5, 7, '자녀');
 insert into family_relationship values(7, 4, '부');
 insert into family_relationship values(7, 5, '모');
-
-
 
 
 -- 6. household 테이블 데이터 추가

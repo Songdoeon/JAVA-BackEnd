@@ -23,16 +23,17 @@ public class RootConfig {
     @Bean
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUrl("jdbc:h2:~/spring-jpa;DATABASE_TO_UPPER=false;MODE=LEGACY;"
-                + "INIT=RUNSCRIPT FROM 'classpath:/script/schema.sql'");
-        dataSource.setUsername("sa");
-        dataSource.setPassword("");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//        dataSource.setUrl("jdbc:h2:~/spring-jpa;DATABASE_TO_UPPER=false;MODE=LEGACY;"
+//                + "INIT=RUNSCRIPT FROM 'classpath:/script/schema.sql'");
+        dataSource.setUrl("jdbc:mysql://133.186.144.236:3306/nhn_academy_34");
+        dataSource.setUsername("nhn_academy_34");
+        dataSource.setPassword("4z2S@*wd]j!zdBi0");
 
-        dataSource.setInitialSize(50);
-        dataSource.setMaxTotal(50);
-        dataSource.setMinIdle(50);
-        dataSource.setMaxIdle(50);
+        dataSource.setInitialSize(10);
+        dataSource.setMaxTotal(10);
+        dataSource.setMinIdle(10);
+        dataSource.setMaxIdle(10);
 
         dataSource.setMaxWaitMillis(1000);
 
@@ -46,7 +47,7 @@ public class RootConfig {
     @Bean
     public MessageSource messageSource(){
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("message");
+        messageSource.setBasename("messages");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }

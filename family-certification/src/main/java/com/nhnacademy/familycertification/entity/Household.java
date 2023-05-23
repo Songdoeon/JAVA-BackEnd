@@ -4,9 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
+@ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,7 +28,7 @@ public class Household {
     private Resident householdResidentSerialNumber;
 
     @Column(name = "household_composition_date")
-    private LocalDateTime householdCompositionDate;
+    private LocalDate householdCompositionDate;
 
     @Column(name = "household_composition_reason_code")
     private String householdCompositionReasonCode;
@@ -40,4 +43,5 @@ public class Household {
     @JsonIgnore
     @OneToMany(mappedBy = "household", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<HouseholdMovementAddress> householdMovementAddresses;
+
 }

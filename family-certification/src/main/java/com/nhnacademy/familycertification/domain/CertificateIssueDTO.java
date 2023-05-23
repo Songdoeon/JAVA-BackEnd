@@ -4,9 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.springframework.web.bind.annotation.GetMapping;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @ToString
 @Getter
@@ -16,6 +15,6 @@ public class CertificateIssueDTO {
 
     private Long certificateConfirmationNumber;
     private String certificateTypeCode;
-    private LocalDateTime certificateIssueDate;
+    private LocalDate certificateIssueDate;
 
 }

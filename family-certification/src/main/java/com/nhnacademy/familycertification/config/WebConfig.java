@@ -16,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.*;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -65,6 +66,8 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(springResourceTemplateResolver());
         templateEngine.setTemplateEngineMessageSource(messageSource);
+        //권한
+        templateEngine.addDialect(new SpringSecurityDialect());
         return templateEngine;
     }
     public SpringResourceTemplateResolver springResourceTemplateResolver(){
@@ -91,7 +94,8 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addRedirectViewController("/","loginForm");
+        registry.addViewController("/").setViewName("main");
+        registry.addRedirectViewController("/redirect-index", "/login");
     }
 
     // TODO#3: 컨텐츠 협상 전략 설정

@@ -14,6 +14,8 @@ public class ResidentRegisterDTO {
     private String name;
     private String residentRegistrationNumber;
     private String genderCode;
+    private String residentId;
+    private String password;
     private LocalDateTime birthDate;
     private String birthPlaceCode;
     private String registrationBaseAddress;

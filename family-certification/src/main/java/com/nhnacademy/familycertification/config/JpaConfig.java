@@ -10,11 +10,12 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
-
+@EnableTransactionManagement
 @EnableJpaRepositories(basePackageClasses = RepositoryBase.class)
 @Configuration
 public class JpaConfig {
@@ -31,7 +32,7 @@ public class JpaConfig {
 
     private JpaVendorAdapter jpaVendorAdapters() {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
-        hibernateJpaVendorAdapter.setDatabase(Database.H2);
+        hibernateJpaVendorAdapter.setDatabase(Database.MYSQL);
 
         return hibernateJpaVendorAdapter;
     }

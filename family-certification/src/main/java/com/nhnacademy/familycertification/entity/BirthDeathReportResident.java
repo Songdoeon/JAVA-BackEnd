@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Builder
@@ -19,27 +21,29 @@ public class BirthDeathReportResident {
 
     // 출생 or 사망한 사람
     @MapsId("residentSerialNumber")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "resident_serial_number")
     private Resident resident;
 
     // 신고한 사람
-    @ManyToOne
+    @MapsId("reportResidentSerialNumber")
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "report_resident_serial_number")
     private Resident reportResidentSerialNumber;
 
+    @Setter
     @Column(name = "birth_death_report_date")
-    private LocalDateTime birthDeathReportDate;
+    private LocalDate birthDeathReportDate;
 
     @Column(name = "birth_report_qualifications_code")
     private String birthReportQualificationsCode;
 
     @Column(name = "death_report_qualifications_code")
     private String deathReportQualificationsCode;
-
+    @Setter
     @Column(name = "email_address")
     private String emailAddress;
-
+    @Setter
     @Column(name = "phone_number")
     private String phoneNumber;
 
@@ -51,19 +55,10 @@ public class BirthDeathReportResident {
     public static class Pk implements Serializable {
         @Column(name = "resident_serial_number")
         private Long residentSerialNumber;
-
+        @Column(name = "report_resident_serial_number")
+        private Long reportResidentSerialNumber;
         @Column(name = "birth_death_type_code")
         private String birthDeathTypeCode;
-    }
-
-    public void updateReportInfo(String emailAddress, String phoneNumber) {
-        if (emailAddress != null) {
-            this.emailAddress = emailAddress;
-        }
-
-        if (phoneNumber != null) {
-            this.phoneNumber = phoneNumber;
-        }
     }
 
 }

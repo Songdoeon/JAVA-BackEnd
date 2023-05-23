@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Builder
 @Entity
 @Table(name = "household_composition_resident")
 public class HouseholdCompositionResident {
@@ -34,7 +35,7 @@ public class HouseholdCompositionResident {
     private String householdRelationshipCode;
 
     @Column(name = "household_composition_change_reason_code")
-    private String householdCompositionChangeReasonCode;
+    private String residentRegistrationNumber;
 
     @NoArgsConstructor
     @AllArgsConstructor
