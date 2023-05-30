@@ -1,0 +1,22 @@
+GET /students
+Host: localhost:8080
+
+###
+POST /students
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "id" : 2,
+  "number" : "song",
+  "balance": "1000"
+}
+
+###
+GET /students/1
+Host: localhost:8080
+Content-Type: application/json
+
+###
+DELETE /students/1
+Host: localhost:8080
