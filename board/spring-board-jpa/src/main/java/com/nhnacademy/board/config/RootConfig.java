@@ -45,7 +45,6 @@ public class RootConfig {
 
         return dataSource;
     }
-
     @Bean
     public MessageSource messageSource(){
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
