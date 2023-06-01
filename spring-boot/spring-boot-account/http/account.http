@@ -7,9 +7,9 @@ Host: localhost:8080
 Content-Type: application/json
 
 {
-  "id" : 3,
-  "number" : "122",
-  "balance": "2000"
+  "id" : 2,
+  "number" : "song",
+  "balance": "1000"
 }
 
 ###
