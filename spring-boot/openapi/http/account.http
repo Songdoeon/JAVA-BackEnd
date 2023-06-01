@@ -1,0 +1,20 @@
+GET /accounts
+Host: localhost:8080
+
+###
+GET localhost:8080/accounts/1
+
+###
+POST /accounts
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "id" : 3,
+  "number" : "122",
+  "balance": "2000"
+}
+
+###
+DELETE /accounts/3
+Host: localhost:8080
