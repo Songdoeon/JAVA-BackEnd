@@ -121,4 +121,10 @@ FROM User
 	Inner Join Hoseholder on householder_id = hoseholder.Householder_id
 WHERE hoseholder.User_id = 4;
 
+SELECT distinct c.name, c.Capital , ifnull(ct.name, '수도없음') 수도, ifnull(ct.population, '수도없음') 수도인구
+FROM country c left Join city ct on c.Capital = ct.id
+where c.name like 'united%';
+
+
+
 SET foreign_key_checks=1;
